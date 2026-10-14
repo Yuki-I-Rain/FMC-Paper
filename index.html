@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6f7f5">
+  <title>最少步试卷生成器 · FMC Paper</title>
+  <link rel="icon" href="./src/assets/favicon.svg" type="image/svg+xml">
+  
+
+</head><body>
+<header class="app-header">
+  <a class="brand" href="#" data-i18n-aria="home"><img src="./src/assets/favicon.svg" width="30" height="30" alt=""><span>FMC<span class="brand-light"> Paper</span></span><span class="brand-divider"></span><span class="brand-desc" data-i18n="brand"></span></a>
+  <div class="privacy-note"><span class="live-dot"></span><span data-i18n="local"></span></div>
+</header>
+<main class="workspace">
+  <aside class="editor" data-i18n-aria="editor">
+    <div class="intro"><div class="eyebrow">FEWEST MOVES, ON PAPER</div><h1><span data-i18n="headline1"></span><br><span data-i18n="headline2"></span><span class="title-dot">.</span></h1><p data-i18n="intro"></p></div>
+    <section class="editor-card">
+      <div class="section-head"><h2><span class="step">01</span><span data-i18n="info"></span></h2><span class="optional" data-i18n="optional"></span></div>
+      <div class="language-row"><span id="language-label" data-i18n="language"></span><div class="segmented" role="group" aria-labelledby="language-label"><button id="lang-zh" class="selected" type="button" aria-pressed="true" lang="zh-CN">中文</button><button id="lang-en" type="button" aria-pressed="false" lang="en">English</button></div></div>
+      <div class="fields">
+        <label class="field full"><span data-i18n="competition"></span><input id="competition" type="text" data-i18n-placeholder="competitionPlaceholder" autocomplete="off"></label>
+        <label class="field"><span data-i18n="round"></span><input id="round" type="text" inputmode="numeric" data-i18n-placeholder="roundPlaceholder" autocomplete="off" aria-describedby="field-errors"></label>
+        <label class="field"><span data-i18n="attempt"></span><select id="attempt"><option value="" data-i18n="hiddenOption"></option><option value="1" data-i18n="attempt1"></option><option value="2" data-i18n="attempt2"></option><option value="3" data-i18n="attempt3"></option></select></label>
+        <label class="field"><span data-i18n="competitor"></span><input id="competitor" type="text" data-i18n-placeholder="handwritten" autocomplete="off"></label>
+        <label class="field"><span data-i18n="wcaId"></span><input id="wcaId" type="text" data-i18n-placeholder="handwritten" autocomplete="off" spellcheck="false"></label>
+      </div>
+      <div id="field-errors" class="error-list" role="status" hidden></div>
+    </section>
+    <section class="editor-card scramble-card">
+      <div class="section-head"><h2><span class="step">02</span><label for="scramble" data-i18n="scramble"></label></h2><button id="clear-scramble" type="button" class="text-button" data-i18n="clear"></button></div>
+      <div class="input-shell" id="input-shell"><pre class="input-highlight" id="input-highlight" aria-hidden="true"></pre><textarea id="scramble" rows="4" data-i18n-placeholder="scramblePlaceholder" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="scramble-help input-status"></textarea></div>
+      <div class="input-status" id="input-status" aria-live="polite"><span class="status-dot"></span><span id="input-status-text"></span><span id="move-count" class="move-count"></span></div>
+      <div class="notation-help" id="scramble-help"><div class="key-list"><kbd>U</kbd><kbd>D</kbd><kbd>L</kbd><kbd>R</kbd><kbd>F</kbd><kbd>B</kbd><span>+</span><kbd>'</kbd><kbd>2</kbd></div><p><span data-i18n="notation1"></span><br><span data-i18n="notation2"></span></p></div>
+      <div class="error-list" id="error-list" hidden></div>
+    </section>
+    <section class="export-card" data-i18n-aria="exportSection">
+      <div class="export-details"><span class="sheet-mini" aria-hidden="true">A4</span><div><strong data-i18n="exportTitle"></strong><p data-i18n="exportSubtitle"></p></div></div>
+      <div id="export-issues" class="export-issues" role="status" hidden></div>
+      <div class="export-buttons">
+        <div class="export-picker" id="export-picker">
+          <button id="export-toggle" class="button primary" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="export-menu" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg><span data-i18n="exportButton"></span><svg class="export-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></button>
+          <div id="export-menu" class="export-menu" role="menu" data-i18n-aria="exportType" hidden><button id="export-pdf" type="button" role="menuitem" tabindex="-1" data-i18n="pdf" disabled></button><button id="export-png" type="button" role="menuitem" tabindex="-1" data-i18n="png" disabled></button></div>
+        </div>
+        <button id="print-button" class="button secondary" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8V3h12v5M6 17H3V9h18v8h-3M6 14h12v7H6Z"/><path d="M17 11h1"/></svg><span data-i18n="printButton"></span></button>
+      </div>
+      <p class="export-note" id="export-note" aria-live="polite"></p><button id="retry-font" class="text-button" data-i18n="retry" hidden></button>
+    </section>
+    <p class="local-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 3v6c0 5-8 9-8 9S4 17 4 12V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg><span data-i18n="privacy"></span></p>
+  </aside>
+  <section class="preview-panel" data-i18n-aria="preview">
+    <div class="preview-toolbar"><div><span class="preview-label" data-i18n="preview"></span><span class="paper-spec">A4 / 210 × 297 mm</span></div><span id="preview-status" class="preview-badge"><span class="live-dot"></span><span id="preview-status-text"></span></span></div>
+    <div class="paper-stage"><div id="paper" class="paper" aria-live="off"></div></div>
+    <div class="preview-caption"><span id="preview-warning" data-i18n="stale" hidden></span><span id="preview-caption-text" data-i18n="previewCaption"></span><span class="caption-dot">·</span><span data-i18n="answerGrid"></span></div>
+  </section>
+</main>
+<footer class="app-footer"><span>FMC Paper <span class="footer-dot">/</span><span data-i18n="footer"></span></span><span><span data-i18n="reference"></span><span class="footer-dot">·</span><a href="#" id="show-credits" data-i18n="credits"></a></span></footer>
+<div id="toast" class="toast" role="status" hidden></div>
+<div id="print-sheet" aria-hidden="true"></div>
+<noscript><p>请启用 JavaScript。 / Please enable JavaScript.</p></noscript>
+<dialog id="credits-dialog" aria-labelledby="credits-title"><form method="dialog"><button class="button secondary" data-i18n="close"></button></form><h2 id="credits-title" data-i18n="credits"></h2><p data-i18n="bundled"></p><p id="credits-status" role="status" hidden></p><div id="credits-content"></div></dialog>
+
+
+
+
+  <script type="module" src="./src/app.js"></script>
+</body></html>
