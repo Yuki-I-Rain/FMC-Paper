@@ -1,6 +1,6 @@
 const UI = {
   zh: {
-    pageTitle: '最少步试卷编辑器 · FMC Paper', home: 'FMC Paper 首页', brand: '最少步试卷编辑器', local: 'By · 2019ZENG04',
+    pageTitle: '最少步试卷编辑器 · FMC Paper', home: 'FMC Paper 首页', brand: '最少步试卷编辑器', local: 'By · ',
     editor: '试卷编辑区', headline1: '一组打乱，', headline2: '一张专属试卷', intro: '从第一步到最后一笔，为下一次最少步练习做好准备。',
     info: '试卷信息', optional: '选填', language: '语言', competition: '比赛 / 练习名称', competitionPlaceholder: '例如：周末最少步练习',
     round: '轮次', roundPlaceholder: '输入正整数，留空隐藏', attempt: '尝试序号', hiddenOption: '不显示', attempt1: '第 1 次', attempt2: '第 2 次', attempt3: '第 3 次',
@@ -18,7 +18,7 @@ const UI = {
     creditsLoading: '正在加载许可证…', creditsFailed: '许可证加载失败，请关闭后重新打开。', close: '关闭', bundled: '本地版所需组件已全部内置。', noScript: '请启用 JavaScript，以使用实时魔方预览和文件导出。',
   },
   en: {
-    pageTitle: 'Fewest Moves Worksheet Generator · FMC Paper', home: 'FMC Paper home', brand: 'Fewest Moves Worksheet Generator', local: 'By · 2019ZENG04',
+    pageTitle: 'Fewest Moves Worksheet Generator · FMC Paper', home: 'FMC Paper home', brand: 'Fewest Moves Worksheet Generator', local: 'By · ',
     editor: 'Worksheet editor', headline1: 'One scramble. ', headline2: 'Your own worksheet', intro: 'From the first move to the final answer. Get ready for your next Fewest Moves practice.',
     info: 'Worksheet details', optional: 'Optional', language: 'Language', competition: 'Competition / practice name', competitionPlaceholder: 'e.g. Weekend FMC practice',
     round: 'Round', roundPlaceholder: 'Number; blank to hide', attempt: 'Attempt', hiddenOption: 'Do not show', attempt1: 'Attempt 1', attempt2: 'Attempt 2', attempt3: 'Attempt 3',
